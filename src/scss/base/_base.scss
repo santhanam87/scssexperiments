@@ -1,0 +1,6 @@
+/* Common applciation based styles. */
+@use '../abstract/variables' as var;
+
+.red{
+    background-color: var.$red;
+}

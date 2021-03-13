@@ -1,0 +1,25 @@
+{
+  "name": "scssexperiments",
+  "version": "1.0.0",
+  "description": "Sass Conceptual Exploration.",
+  "main": "index.js",
+  "scripts": {
+    "sassWatch": "sass --watch src/scss/_index.scss:dist/index.css",
+    "dev": "parcel src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santhanam87/scssexperiments.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/santhanam87/scssexperiments/issues"
+  },
+  "homepage": "https://github.com/santhanam87/scssexperiments#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3",
+    "sass": "^1.32.8"
+  }
+}
