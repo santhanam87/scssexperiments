@@ -1,6 +1,13 @@
 /* Common applciation based styles. */
-@use '../abstract/variables' as var;
+@use '../abstract' as ab;
+@use 'sass:map';
 
-.red{
-    background-color: var.$red;
+$arrowDir: bottom, top, left, right;
+
+@include ab.buildGrid();
+
+@each $dir in $arrowDir {
+    .arrow-#{$dir}{
+        @include ab.arrow($dir);
+    }
 }

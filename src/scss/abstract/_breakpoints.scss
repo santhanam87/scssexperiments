@@ -1,0 +1,146 @@
+$width: ('xsmall': 599px,
+  'small': 600px,
+  'medium': 800px,
+  'large': 1000px,
+  'huge': 1200px,
+);
+
+$breakpoints: ('xsmall': (max-width: map-get($width, xsmall)),
+  'small': (min-width: map-get($width, small)),
+  'medium': (min-width: map-get($width, medium)),
+  'large': (min-width: map-get($width, large)),
+  'huge': (min-width: map-get($width, huge)),
+);
+
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($breakpoints, $breakpoint);
+
+  @if $raw-query {
+    $query: if(type-of($raw-query)=='string',
+        unquote($raw-query),
+        inspect($raw-query));
+
+    @media #{$query} {
+      @content;
+    }
+  }
+
+  @else {
+    @error 'No value found for `#{$breakpoint}`. '
+    +'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+
+/* Building respnosive grid. */
+@mixin buildGrid {
+  /* Number of grid columns. */
+  $columns: 12;
+
+  /* Common grid container and other styles. */
+  .container {
+    margin: auto;
+  }
+
+  .container-fluid {
+    margin: auto;
+    width: 100%;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .col {
+    flex: 1 0 auto;
+  }
+
+  .col-auto {
+    flex: 0 0 auto;
+  }
+
+  [class^="col"] {
+    padding: 0 1rem;
+  }
+
+  .no-gutters [class^="col"] {
+    padding: 0;
+  }
+
+  /* Loops to build the columns for basic and 
+                          resolution based split up */
+  @for $i from 1 through $columns {
+    .col-#{$i} {
+      flex: 0 0 100% * ($i / $columns);
+    }
+
+    .offset-#{$i} {
+      margin-left: 100% * ($i / $columns);
+    }
+  }
+
+  @include respond-to(xsmall) {
+    @for $i from 1 through $columns {
+      .col-xs-#{$i} {
+        flex: 0 0 100% * ($i / $columns);
+      }
+
+      .offset-xs-#{$i} {
+        margin-left: 100% * ($i / $columns);
+      }
+    }
+
+    .container {
+      max-width: map-get($width, xsmall);
+    }
+  }
+
+  @include respond-to(small) {
+    @for $i from 1 through $columns {
+      .col-sm-#{$i} {
+        flex: 0 0 100% * ($i / $columns);
+      }
+
+      .offset-sm-#{$i} {
+        margin-left: 100% * ($i / $columns);
+      }
+    }
+
+    .container {
+      max-width: map-get($width, small);
+    }
+  }
+
+  @include respond-to(medium) {
+    @for $i from 1 through $columns {
+      .col-md-#{$i} {
+        flex: 0 0 100% * ($i / $columns);
+      }
+
+      .offset-md-#{$i} {
+        margin-left: 100% * ($i / $columns);
+      }
+    }
+
+    .container {
+      max-width: map-get($width, medium);
+    }
+  }
+
+  @include respond-to(large) {
+    @for $i from 1 through $columns {
+      .col-lg-#{$i} {
+        flex: 0 0 100% * ($i / $columns);
+      }
+
+      .offset-lg-#{$i} {
+        margin-left: 100% * ($i / $columns);
+      }
+    }
+
+    .container {
+      max-width: map-get($width, large);
+    }
+  }
+}
