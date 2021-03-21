@@ -5,7 +5,6 @@ Sass Conceptual Exploration.
 <!-- Grid system -->
 <!-- Utilites -->
 # In Progress
-## Abstract
 ### Colors
     Text ✓
     Background ✓
