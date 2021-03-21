@@ -6,19 +6,19 @@ Sass Conceptual Exploration.
 <!-- Utilites -->
 # In Progress
 ## Abstract
-    ### Colors
-        Text ✓
-        Background ✓
-        Border
-        Shadow
-    ### Typography
-        Text sizes
-        Text cases
-        Horizontal Alignments
-        Vertical Alignments
-    ### Spacing
-        Margins ✓
-        Paddings ✓
-    ### Position and display
-        Displays
-        Positions
+### Colors
+    Text ✓
+    Background ✓
+    Border
+    Shadow
+### Typography
+    Text sizes
+    Text cases
+    Horizontal Alignments
+    Vertical Alignments
+### Spacing
+    Margins ✓
+    Paddings ✓
+### Position and display
+    Displays
+    Positions
