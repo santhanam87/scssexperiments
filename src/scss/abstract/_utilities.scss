@@ -1,0 +1,37 @@
+@use './variables' as *;
+
+/* Margin utilities */
+@mixin build_spacing() {
+    @each $property_key, $property_value in (margin:'m', padding:'p'){
+        @each $key, $value in $mds_spacing{
+            .mds_#{$property_value}_#{$key}{
+                #{$property_key}: $value;
+            }
+            .mds_#{$property_value}_x_#{$key}{
+                #{$property_key}-left: $value;
+                #{$property_key}-right: $value;
+            }
+            .mds_#{$property_value}_y_#{$key}{
+                #{$property_key}-top: $value;
+                #{$property_key}-bottom: $value;
+            }
+            .mds_#{$property_value}_l_#{$key}{
+                #{$property_key}-left: $value;
+            }
+            .mds_#{$property_value}_r_#{$key}{
+                #{$property_key}-right: $value;
+            }
+            .mds_#{$property_value}_t_#{$key}{
+                #{$property_key}-top: $value;
+            }
+            .mds_#{$property_value}_b_#{$key}{
+                #{$property_key}-bottom: $value;
+            }
+        }
+    }
+        
+    
+}
+
+
+/* Padding utilities */

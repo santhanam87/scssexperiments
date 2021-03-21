@@ -1,20 +1,7 @@
-$width: ('xsmall': 599px,
-  'small': 600px,
-  'medium': 800px,
-  'large': 1000px,
-  'huge': 1200px,
-);
-
-$breakpoints: ('xsmall': (max-width: map-get($width, xsmall)),
-  'small': (min-width: map-get($width, small)),
-  'medium': (min-width: map-get($width, medium)),
-  'large': (min-width: map-get($width, large)),
-  'huge': (min-width: map-get($width, huge)),
-);
+@use './variables' as *;
 
 @mixin respond-to($breakpoint) {
-  $raw-query: map-get($breakpoints, $breakpoint);
-
+  $raw-query: map-get($mds_breakpoints, $breakpoint);
   @if $raw-query {
     $query: if(type-of($raw-query)=='string',
         unquote($raw-query),
@@ -27,36 +14,33 @@ $breakpoints: ('xsmall': (max-width: map-get($width, xsmall)),
 
   @else {
     @error 'No value found for `#{$breakpoint}`. '
-    +'Please make sure it is defined in `$breakpoints` map.';
+    +'Please make sure it is defined in `$mds_breakpoints` map.';
   }
 }
 
 /* Building respnosive grid. */
 @mixin buildGrid {
-  /* Number of grid columns. */
-  $columns: 12;
-
   /* Common grid container and other styles. */
-  .container {
+  .mds_container {
     margin: auto;
   }
 
-  .container-fluid {
+  .mds_container-fluid {
     margin: auto;
     width: 100%;
   }
 
-  .row {
+  .mds_row {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
   }
 
-  .col {
+  .mds_col {
     flex: 1 0 auto;
   }
 
-  .col-auto {
+  .mds_col-auto {
     flex: 0 0 auto;
   }
 
@@ -64,83 +48,83 @@ $breakpoints: ('xsmall': (max-width: map-get($width, xsmall)),
     padding: 0 1rem;
   }
 
-  .no-gutters [class^="col"] {
+  .mds_no-gutters [class^="col"] {
     padding: 0;
   }
 
   /* Loops to build the columns for basic and 
                           resolution based split up */
-  @for $i from 1 through $columns {
-    .col-#{$i} {
-      flex: 0 0 100% * ($i / $columns);
+  @for $i from 1 through $mds_grid_columns {
+    .mds_col-#{$i} {
+      flex: 0 0 100% * ($i / $mds_grid_columns);
     }
 
-    .offset-#{$i} {
-      margin-left: 100% * ($i / $columns);
+    .mds_offset-#{$i} {
+      margin-left: 100% * ($i / $mds_grid_columns);
     }
   }
 
   @include respond-to(xsmall) {
-    @for $i from 1 through $columns {
-      .col-xs-#{$i} {
-        flex: 0 0 100% * ($i / $columns);
+    @for $i from 1 through $mds_grid_columns {
+      .mds_col-xs-#{$i} {
+        flex: 0 0 100% * ($i / $mds_grid_columns);
       }
 
-      .offset-xs-#{$i} {
-        margin-left: 100% * ($i / $columns);
+      .mds_offset-xs-#{$i} {
+        margin-left: 100% * ($i / $mds_grid_columns);
       }
     }
 
-    .container {
-      max-width: map-get($width, xsmall);
+    .mds_container {
+      max-width: map-get($mds_width, xsmall);
     }
   }
 
   @include respond-to(small) {
-    @for $i from 1 through $columns {
-      .col-sm-#{$i} {
-        flex: 0 0 100% * ($i / $columns);
+    @for $i from 1 through $mds_grid_columns {
+      .mds_col-sm-#{$i} {
+        flex: 0 0 100% * ($i / $mds_grid_columns);
       }
 
-      .offset-sm-#{$i} {
-        margin-left: 100% * ($i / $columns);
+      .mds_offset-sm-#{$i} {
+        margin-left: 100% * ($i / $mds_grid_columns);
       }
     }
 
-    .container {
-      max-width: map-get($width, small);
+    .mds_container {
+      max-width: map-get($mds_width, small);
     }
   }
 
   @include respond-to(medium) {
-    @for $i from 1 through $columns {
-      .col-md-#{$i} {
-        flex: 0 0 100% * ($i / $columns);
+    @for $i from 1 through $mds_grid_columns {
+      .mds_col-md-#{$i} {
+        flex: 0 0 100% * ($i / $mds_grid_columns);
       }
 
-      .offset-md-#{$i} {
-        margin-left: 100% * ($i / $columns);
+      .mds_offset-md-#{$i} {
+        margin-left: 100% * ($i / $mds_grid_columns);
       }
     }
 
-    .container {
-      max-width: map-get($width, medium);
+    .mds_container {
+      max-width: map-get($mds_width, medium);
     }
   }
 
   @include respond-to(large) {
-    @for $i from 1 through $columns {
-      .col-lg-#{$i} {
-        flex: 0 0 100% * ($i / $columns);
+    @for $i from 1 through $mds_grid_columns {
+      .mds_col-lg-#{$i} {
+        flex: 0 0 100% * ($i / $mds_grid_columns);
       }
 
-      .offset-lg-#{$i} {
-        margin-left: 100% * ($i / $columns);
+      .mds_offset-lg-#{$i} {
+        margin-left: 100% * ($i / $mds_grid_columns);
       }
     }
 
-    .container {
-      max-width: map-get($width, large);
+    .mds_container {
+      max-width: map-get($mds_width, large);
     }
   }
 }

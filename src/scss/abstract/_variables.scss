@@ -1,1 +1,76 @@
-$red:red;
+/* Responsive Grid */
+$mds_grid_columns: 12;
+
+$mds_width: (
+  'xsmall': 599px,
+  'small': 600px,
+  'medium': 800px,
+  'large': 1000px,
+  'huge': 1200px,
+);
+
+$mds_breakpoints: (
+  'xsmall': (max-width: map-get($mds_width, xsmall)),
+  'small': (min-width: map-get($mds_width, small)),
+  'medium': (min-width: map-get($mds_width, medium)),
+  'large': (min-width: map-get($mds_width, large)),
+  'huge': (min-width: map-get($mds_width, huge)),
+);
+
+/* Theme Color Palets */
+
+$mds_colors_pallet : (
+    primary: (
+        base-bg: #fff,
+        base-text: #fff,
+        light-bg: #fff,
+        light-text: #fff,
+        dark-bg: #fff,
+        dark-text: #fff
+    ),
+    secondary: (
+        base-bg: #fff,
+        base-text: #fff,
+        light-bg: #fff,
+        light-text: #fff,
+        dark-bg: #fff,
+        dark-text: #fff,    
+    ),
+    body: (
+        bg: #fff,
+        text: #fff,
+    ),
+    surface:(
+        bg: #fff,
+        text: #fff,
+    ),
+    success:(
+        bg: #fff,
+        text: #fff
+    ),
+    warning:( 
+        bg: #fff,
+        text: #fff
+    ),
+    error:(
+        bg: #fff,
+        text: #fff,
+    ),
+    info : (
+        bg: #fff,
+        text: #fff
+    )
+);
+
+/* Margin and padding utilities */
+$mds_spacing_base:1rem;
+$mds_spacing_multiplier: 1.4;
+
+$mds_spacing: (
+    xs: $mds_spacing_base,
+    sm: $mds_spacing_base * 2 * $mds_spacing_multiplier,
+    md: $mds_spacing_base * 3 * $mds_spacing_multiplier,
+    lg: $mds_spacing_base * 4 * $mds_spacing_multiplier,
+    xl: $mds_spacing_base * 5 * $mds_spacing_multiplier,
+    xx: $mds_spacing_base * 6 * $mds_spacing_multiplier
+)
