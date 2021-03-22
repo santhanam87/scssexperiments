@@ -1,0 +1,1 @@
+{"version":3,"sources":["scss\\_index.scss"],"names":[],"mappings":"AACA;EACI,YAFE","file":"_index.722ae79c.css","sourceRoot":"..\\src","sourcesContent":["$red: green;\r\nbody{\r\n    background: $red;\r\n}"]}
