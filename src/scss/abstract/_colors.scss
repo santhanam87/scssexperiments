@@ -4,7 +4,7 @@
 @mixin build_scheme() {
     @each $schemeKey, $schemeMap in $mds_colors_pallet {
         @each $colorKey, $colorValue in $schemeMap{
-            .mds_#{$schemeKey}-#{$colorKey}{
+            .mds-#{$schemeKey}-#{$colorKey}{
                 @if string.index($colorKey, "bg"){
                     background-color: $colorValue;
                 }@else if string.index($colorKey, "text"){

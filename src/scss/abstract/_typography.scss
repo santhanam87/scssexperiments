@@ -1,0 +1,32 @@
+@use './variables' as * ;
+@use "sass:list";
+@use "sass:map";
+
+@mixin build_primary_font() {
+    @import url($primary_font); 
+    body{
+        font-family: $mds_primaryFontName;  
+    }
+    h4, h5, h6 { 
+        margin: 1rem 0;
+    }
+    .mds-text-uppercase{
+        text-transform: uppercase;
+    }   
+    @each $type, $property in $typeFace {
+        @each $tag, $value in map.get($property, tag){
+            #{$tag}{
+                font-weight: list.nth($value, 1);
+                font-size: list.nth($value, 2);
+                letter-spacing: list.nth($value, 3);
+            }    
+        }
+        @each $tag, $value in map.get($property, class){
+            .mds-#{$tag}{
+                font-weight: list.nth($value, 1);
+                font-size: list.nth($value, 2);
+                letter-spacing: list.nth($value, 3);
+            }    
+        }
+    }
+}

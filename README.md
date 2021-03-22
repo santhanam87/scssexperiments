@@ -11,7 +11,7 @@ Sass Conceptual Exploration.
     Border
     Shadow
 ### Typography
-    Text sizes
+    Text sizes ✓
     Text cases
     Horizontal Alignments
     Vertical Alignments

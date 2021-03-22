@@ -1,6 +1,8 @@
 /* Responsive Grid */
 $mds_grid_columns: 12;
 
+$primary_font: 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap';  
+
 $mds_width: (
   'xsmall': 599px,
   'small': 600px,
@@ -17,23 +19,48 @@ $mds_breakpoints: (
   'huge': (min-width: map-get($mds_width, huge)),
 );
 
+/* Typography */
+
+$mds_primaryFontName : "Roboto";
+$mds_secondaryFontName : "";
+
+$typeFace: (
+    primary: (
+        tag:(
+            h1: (light, 6rem, -1.5px),
+            h2: (light, 3.75rem, -0.5px),
+            h3: (normal, 3rem, 0),
+            h4: (normal, 2.12rem, 0.25),
+            h5: (normal, 1.5rem, 0),
+            h6: (medium, 1.25rem, 0.15px),
+            body: (medium, 1rem, 0.5px),
+        ),
+        class:(
+            button: (medium, 1rem, 1.25px),
+            caption: (medium, 0.75rem, 0.4px),
+            subTitle: (medium, 1rem, 0.15px)
+        )
+    )
+);
+
+
 /* Theme Color Palets */
 
 $mds_colors_pallet : (
     primary: (
-        base-bg: #fff,
+        base-bg: #1a237e,
         base-text: #fff,
-        light-bg: #fff,
+        light-bg: #534bae,
         light-text: #fff,
-        dark-bg: #fff,
+        dark-bg: #000051,
         dark-text: #fff
     ),
     secondary: (
-        base-bg: #fff,
+        base-bg: #1976d2,
         base-text: #fff,
-        light-bg: #fff,
-        light-text: #fff,
-        dark-bg: #fff,
+        light-bg: #63a4ff,
+        light-text: rgb(32, 31, 31),
+        dark-bg: #004ba0,
         dark-text: #fff,    
     ),
     body: (
@@ -63,7 +90,7 @@ $mds_colors_pallet : (
 );
 
 /* Margin and padding utilities */
-$mds_spacing_base:1rem;
+$mds_spacing_base: .8rem;
 $mds_spacing_multiplier: 1.4;
 
 $mds_spacing: (
